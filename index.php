@@ -1,36 +1,36 @@
 <?php
-	
+	// echo date("Y-m-d");
   if(isset($_GET['month']) && isset($_GET['year'])) {
     $month = $_GET['month'];
     $year = $_GET['year'];
   }else {
     // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
-    $month = date("m");
+    $month = date("n");
     $year = date('Y');
   
   }
   
 	// 根據今天是星期幾決定要使用哪個背景圖片
 	switch ($month) {
-		case '0':
+		case '1':
 			$Bg = "./images/bg0.gif";
 			break;
-		case '1':
+		case '2':
 			$Bg = "./images/bg1.gif";
 			break;
-		case "2":
+		case "3":
 			$Bg = "./images/bg2.gif";
 			break;
-		case "3":
+		case "4":
 			$Bg = "./images/bg3.gif";
 			break;
-		case "4":
+		case "5":
 			$Bg = "./images/bg4.gif";
 			break;
-		case "5":
+		case "6":
 			$Bg = "./images/bg5.gif";
 			break;
-		case "6":
+		case "7":
 			$Bg = "./images/bg6.gif";
 	}
 ?>
@@ -66,15 +66,15 @@
 
   <?php
 /*請在這裹撰寫你的萬年曆程式碼*/  
-if(isset($_GET['month']) && isset($_GET['year'])) {
-  $month = $_GET['month'];
-  $year = $_GET['year'];
-}else {
-  // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
-  $month = date("m");
-  $year = date('Y');
+// if(isset($_GET['month']) && isset($_GET['year'])) {
+//   $month = $_GET['month'];
+//   $year = $_GET['year'];
+// }else {
+//   // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
+//   $month = date("m");
+//   $year = date('Y');
 
-}
+// }
 
   echo "<h3 style='text-align:center'>";
   echo date("西元{$year}年{$month}月");

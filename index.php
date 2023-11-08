@@ -12,7 +12,7 @@ if (isset($_GET['month']) && isset($_GET['year'])) {
 // 根據今天是星期幾決定要使用哪個背景圖片
 switch ($month) {
   case '1':
-    $Bg = "./images/bg0.gif";
+    $Bg = "./images/bgN-2.jpg";
     break;
   case '2':
     $Bg = "./images/bg1.gif";
@@ -31,6 +31,20 @@ switch ($month) {
     break;
   case "7":
     $Bg = "./images/bg6.gif";
+  case "8":
+    $Bg = "./images/bgN-1.jpg";
+    break;
+  case "9":
+    $Bg = "./images/bg4.gif";
+    break;
+  case "10":
+    $Bg = "./images/bgN-1.jpg";
+    break;
+  case "11":
+    $Bg = "./images/bgN-1.jpg";
+  case "12":
+    $Bg = "./images/bgN-2.jpg";
+
 }
 ?>
 
@@ -48,6 +62,8 @@ switch ($month) {
 
 <body style="background-image:url('<?php echo $Bg ?>')">
 
+  <!-- <body style="background-image: url('./images/bgN-1.jpg');"> -->
+
   <h1>萬年曆</h1>
   <?php
   /*請在這裹撰寫你的萬年曆程式碼*/
@@ -58,9 +74,9 @@ switch ($month) {
   //   // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
   //   $month = date("m");
   //   $year = date('Y');
-
+  
   // }
-
+  
   // 名言的array
   $sayingArr = ['From error to error one discovers the entire truth.', 'The only impossible journey is the one you never begin.', 'Strength and growth come only through continuous effort and struggle.', 'However difficult life may seem, there is always something you can do and succeed at.', 'The beautiful thing about learning is nobody can take it away from you.', 'I am always doing that which I cannot do, in order that I may learn how to do it.', 'There is no such thing as a great talent without great will - power.', 'I don\'t wait for moods. You accomplish nothing if you do that. Your mind must know it has got down to work.', 'You can overcome anything, if and only if you love something enough.', 'Talent without working hard is nothing.', 'Find a group of people who challenge and inspire you; spend a lot of time with them, and it will change your life.', 'Life is like a game of cards. The hand you are dealt is determinism; the way you play it is free will.'];
 
@@ -78,13 +94,13 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-
+  
 
   ?>
   <!-- style='width:500px;display:flex;margin:auto;justify-content:space-between' -->
   <div>
     <?php
-    if ($month  > 11) {
+    if ($month > 11) {
       $next = 1;
       $nextYear = $year + 1;
     } else {
@@ -92,7 +108,7 @@ switch ($month) {
       $nextYear = $year;
     }
 
-    if ($month  < 2) {
+    if ($month < 2) {
       $prev = 12;
       $prevYear = $year - 1;
     } else {
@@ -104,7 +120,7 @@ switch ($month) {
     // echo "<h3 style='text-align:center'>";
     // echo date("西元{$year}年{$month}月");
     // echo "</h3>";
-
+    
 
     ?>
     <a href='?year=<?= $prevYear ?>&month=<?= $prev ?>'>Prev</a>
@@ -123,7 +139,6 @@ switch ($month) {
     </div>
 
   </div>
-  <div class="circle"></div>
   <div class="container">
     <div class='aside-div'>
       <aside>
@@ -156,9 +171,9 @@ switch ($month) {
               $thisCellDate = strtotime("+$addDays days", strtotime($firstCellDate));
               // 判斷格子中的日期是星期幾，0代表星期日(依此類推)，因為這裡要讓假日的 background-color 改變，也就是星期為 0 或 6 的，所以將其作為判斷條件
               if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
-                echo "<td style='background-color:lightgreen'>";
-              } else if (date('Y-m-j') == date('Y-m-j', $thisCellDate)) {
                 echo "<td style='color:red'>";
+              } else if (date('Y-m-j') == date('Y-m-j', $thisCellDate)) {
+                echo "<td class='today'>";
               } else {
                 echo "<td>";
               }
@@ -186,23 +201,22 @@ switch ($month) {
           echo "</table>";
           ?>
       </main>
-
     </div>
   </div>
 
   <div id="current-time"></div>
 
   <script>
-    function updateTime() {
-      var currentTime = new Date();
-      var hours = currentTime.getHours();
-      var minutes = currentTime.getMinutes();
-      var seconds = currentTime.getSeconds();
-      var formattedTime = hours + ':' + minutes + ':' + seconds;
-      document.getElementById('current-time').innerHTML = formattedTime;
-    }
+  function updateTime() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    var formattedTime = hours + ':' + minutes + ':' + seconds;
+    document.getElementById('current-time').innerHTML = formattedTime;
+  }
 
-    setInterval(updateTime, 1000); // 每秒更新一次時間
+  setInterval(updateTime, 1000); // 每秒更新一次時間
   </script>
 
   <!-- <script language="JavaScript">

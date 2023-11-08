@@ -142,7 +142,9 @@ else {
         // 判斷格子中的日期是星期幾，0代表星期日(依此類推)，因為這裡要讓假日的 background-color 改變，也就是星期為 0 或 6 的，所以將其作為判斷條件
         if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
           echo "<td style='background-color:lightgreen'>";
-        } else {
+        }else if(date('Y-m-j') == date('Y-m-j', $thisCellDate)){
+          echo "<td style='color:red'>";}
+        else {
           echo "<td>";
         }
         // 判斷格子中的日期的月份是否為每月 1 號代表的日期格式裡的月份相等，因為這裡要將不是該月份的日期不顯示出來

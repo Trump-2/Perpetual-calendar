@@ -15,14 +15,16 @@ table {
   border-collapse: collapse;
   width: 95%;
   position: absolute;
-  bottom: 0;
   left: 15px;
+  table-layout: fixed;
   /* border: 3px double #999; */
+  border-bottom:2px solid black;
+  height:250px;
 }
 
-td,
+
 th {
-  height: 60px;
+  border-top:2px solid black;
 }
 
 td {
@@ -40,6 +42,8 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top:60px;
+
 }
 
 .container > a {
@@ -52,17 +56,17 @@ td {
 }
 
 aside {
-  width: 300px;
-  height: 500px;
+  /* width: 300px; */
+  width:250px;
+  height: 400px;
   background-color: turquoise;
 }
 
 main {
-  width: 600px;
-  height: 500px;
+  width:450px;
+  height: 400px;
   background-color: rgba(156, 156, 156, 0.639);
-  /* padding-top: 20px;
-  padding-left: 200px; */
+  /* padding-top: 20px; */
   position: relative;
 }
 
@@ -72,4 +76,25 @@ main {
 
 .today {
   background-color: chocolate;
+}
+
+.month-year {
+  display:flex;
+  /* justify-content: space-between; */
+  align-items:center;
+  height:100px;
+  position:relative;
+}
+
+.month {
+  position:relative;
+  left:15px;
+  font-size:35px;
+}
+
+.year {
+  position:absolute;
+  right:10px;
+  top:15px;
+  font-size:25px;
 }

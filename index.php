@@ -67,7 +67,7 @@ switch ($month) {
 
   <!-- <body style="background-image: url('./images/bgN-1.jpg');"> -->
 
-  <h1>萬年曆</h1>
+  <!-- <h1>萬年曆</h1> -->
   <?php
   /*請在這裹撰寫你的萬年曆程式碼*/
   // if(isset($_GET['month']) && isset($_GET['year'])) {
@@ -77,9 +77,9 @@ switch ($month) {
   //   // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
   //   $month = date("m");
   //   $year = date('Y');
-
+  
   // }
-
+  
   // 名言的array
   $sayingArr = ['From error to error one discovers the entire truth.', 'The only impossible journey is the one you never begin.', 'Strength and growth come only through continuous effort and struggle.', 'However difficult life may seem, there is always something you can do and succeed at.', 'The beautiful thing about learning is nobody can take it away from you.', 'I am always doing that which I cannot do, in order that I may learn how to do it.', 'There is no such thing as a great talent without great will - power.', 'I don\'t wait for moods. You accomplish nothing if you do that. Your mind must know it has got down to work.', 'You can overcome anything, if and only if you love something enough.', 'Talent without working hard is nothing.', 'Find a group of people who challenge and inspire you; spend a lot of time with them, and it will change your life.', 'Life is like a game of cards. The hand you are dealt is determinism; the way you play it is free will.'];
 
@@ -97,7 +97,7 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-
+  
 
   ?>
   <!-- style='width:500px;display:flex;margin:auto;justify-content:space-between' -->
@@ -119,25 +119,9 @@ switch ($month) {
       $prevYear = $year;
     }
 
-
-    // echo "<h3 style='text-align:center'>";
-    // echo date("西元{$year}年{$month}月");
-    // echo "</h3>";
-
-
     ?>
     <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'>Now</a>
 
-    <div class="month">
-      <?php
-      echo date('M', strtotime(date("Y-$month-1")));
-      ?>
-    </div>
-    <div class="year">
-      <?php
-      echo $year;
-      ?>
-    </div>
 
   </div>
   <div class="container">
@@ -151,16 +135,35 @@ switch ($month) {
     <div class="main-div">
 
       <main>
+        <div class=month-year>
 
+          <div class="month">
+            <?php
+            echo date('M', strtotime(date("Y-$month-1")));
+            ?>
+          </div>
+          <div class="year">
+            <?php
+            echo $year;
+            ?>
+          </div>
+        </div>
+        <?php
+        // for ($i = 0; $i <= 11; $i++) {
+        //   if ($month == $i + 1) {
+        //     echo $sayingArr[$i];
+        //   }
+        // }
+        ?>
         <table>
           <tr>
-            <td>Sun.</td>
-            <td>Mon.</td>
-            <td>Tue.</td>
-            <td>Wed.</td>
-            <td>Thu.</td>
-            <td>Fri.</td>
-            <td>Sat.</td>
+            <th>Sun.</th>
+            <th>Mon.</th>
+            <th>Tue.</th>
+            <th>Wed.</th>
+            <th>Thu.</th>
+            <th>Fri.</th>
+            <th>Sat.</th>
           </tr>
           <?php
           // $i 影響週數
@@ -188,19 +191,15 @@ switch ($month) {
             }
             echo "</tr>";
           }
-          echo "<tr >";
-          echo "<td colspan='7'>";
-
           // 根據月份印出不同的名言
-          for ($i = 0; $i <= 11; $i++) {
-            if ($month == $i + 1) {
-              echo $sayingArr[$i];
-            }
-          }
+          // echo "<tr >";
+          // echo "<td colspan='7'>";
 
-          echo "</td>";
 
-          echo "</tr>";
+
+          // echo "</td>";
+
+          // echo "</tr>";
           echo "</table>";
           ?>
       </main>

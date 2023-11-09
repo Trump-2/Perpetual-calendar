@@ -12,7 +12,7 @@ if (isset($_GET['month']) && isset($_GET['year'])) {
 // 根據今天是星期幾決定要使用哪個背景圖片
 switch ($month) {
   case '1':
-    $Bg = "./images/bgN-2.jpg";
+    $Bg = "./images/bg3.gif";
     break;
   case '2':
     $Bg = "./images/bg1.gif";
@@ -31,6 +31,7 @@ switch ($month) {
     break;
   case "7":
     $Bg = "./images/bg6.gif";
+    break;
   case "8":
     $Bg = "./images/bgN-1.jpg";
     break;
@@ -38,13 +39,14 @@ switch ($month) {
     $Bg = "./images/bg4.gif";
     break;
   case "10":
-    $Bg = "./images/bgN-1.jpg";
+    $Bg = "./images/bg6.gif";
     break;
   case "11":
     $Bg = "./images/bgN-1.jpg";
+    break;
   case "12":
-    $Bg = "./images/bgN-2.jpg";
-
+    $Bg = "./images/bg3.gif";
+    break;
 }
 ?>
 
@@ -55,12 +57,13 @@ switch ($month) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
   <link rel="stylesheet" href="style.css">
   <title>萬年曆作業</title>
 
 </head>
 
-<body style="background-image:url('<?php echo $Bg ?>')">
+<body onload="startTime()" style="background-image:url('<?php echo $Bg ?>')">
 
   <!-- <body style="background-image: url('./images/bgN-1.jpg');"> -->
 
@@ -74,9 +77,9 @@ switch ($month) {
   //   // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
   //   $month = date("m");
   //   $year = date('Y');
-  
+
   // }
-  
+
   // 名言的array
   $sayingArr = ['From error to error one discovers the entire truth.', 'The only impossible journey is the one you never begin.', 'Strength and growth come only through continuous effort and struggle.', 'However difficult life may seem, there is always something you can do and succeed at.', 'The beautiful thing about learning is nobody can take it away from you.', 'I am always doing that which I cannot do, in order that I may learn how to do it.', 'There is no such thing as a great talent without great will - power.', 'I don\'t wait for moods. You accomplish nothing if you do that. Your mind must know it has got down to work.', 'You can overcome anything, if and only if you love something enough.', 'Talent without working hard is nothing.', 'Find a group of people who challenge and inspire you; spend a lot of time with them, and it will change your life.', 'Life is like a game of cards. The hand you are dealt is determinism; the way you play it is free will.'];
 
@@ -94,7 +97,7 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-  
+
 
   ?>
   <!-- style='width:500px;display:flex;margin:auto;justify-content:space-between' -->
@@ -120,12 +123,10 @@ switch ($month) {
     // echo "<h3 style='text-align:center'>";
     // echo date("西元{$year}年{$month}月");
     // echo "</h3>";
-    
+
 
     ?>
-    <a href='?year=<?= $prevYear ?>&month=<?= $prev ?>'>Prev</a>
     <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'>Now</a>
-    <a href='?year=<?= $nextYear ?>&month=<?= $next ?>'>Next</a>
 
     <div class="month">
       <?php
@@ -140,9 +141,11 @@ switch ($month) {
 
   </div>
   <div class="container">
+    <a href='?year=<?= $prevYear ?>&month=<?= $prev ?>'>Prev</a>
     <div class='aside-div'>
+
       <aside>
-        123
+        <div id="clock"></div>
       </aside>
     </div>
     <div class="main-div">
@@ -151,13 +154,13 @@ switch ($month) {
 
         <table>
           <tr>
-            <td>Sun</td>
-            <td>Mon</td>
-            <td>Tue</td>
-            <td>Wed</td>
-            <td>Thu</td>
-            <td>Fri</td>
-            <td>Sat</td>
+            <td>Sun.</td>
+            <td>Mon.</td>
+            <td>Tue.</td>
+            <td>Wed.</td>
+            <td>Thu.</td>
+            <td>Fri.</td>
+            <td>Sat.</td>
           </tr>
           <?php
           // $i 影響週數
@@ -202,11 +205,12 @@ switch ($month) {
           ?>
       </main>
     </div>
+    <a href='?year=<?= $nextYear ?>&month=<?= $next ?>'>Next</a>
   </div>
 
-  <div id="current-time"></div>
 
-  <script>
+
+  <!-- <script>
   function updateTime() {
     var currentTime = new Date();
     var hours = currentTime.getHours();
@@ -217,6 +221,28 @@ switch ($month) {
   }
 
   setInterval(updateTime, 1000); // 每秒更新一次時間
+  </script> -->
+
+
+  <script>
+  function startTime() {
+    var today = new Date();
+    var hh = today.getHours();
+    var mm = today.getMinutes();
+    var ss = today.getSeconds();
+    mm = checkTime(mm);
+    ss = checkTime(ss);
+    document.getElementById('clock').innerHTML = hh + " : " + mm + " : " + ss;
+    var timeoutId = setTimeout(startTime, 500);
+  }
+
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  setInterval(updateTime, 1000);
   </script>
 
   <!-- <script language="JavaScript">

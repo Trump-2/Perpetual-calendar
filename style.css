@@ -14,17 +14,17 @@ td {
 table {
   border-collapse: collapse;
   width: 95%;
-  position: absolute;
-  left: 15px;
+  /* position: absolute;
+  left: 15px; */
   table-layout: fixed;
   /* border: 3px double #999; */
-  border-bottom:2px solid black;
-  height:250px;
+  border-bottom: 2px solid black;
+  height: 250px;
+  background-color: red;
 }
 
-
 th {
-  border-top:2px solid black;
+  border-top: 2px solid black;
 }
 
 td {
@@ -42,8 +42,7 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:60px;
-
+  margin-top: 60px;
 }
 
 .container > a {
@@ -57,17 +56,18 @@ td {
 
 aside {
   /* width: 300px; */
-  width:250px;
+  width: 250px;
   height: 400px;
   background-color: turquoise;
 }
 
 main {
-  width:450px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
   height: 400px;
   background-color: rgba(156, 156, 156, 0.639);
-  /* padding-top: 20px; */
-  position: relative;
 }
 
 .main-div {
@@ -79,22 +79,23 @@ main {
 }
 
 .month-year {
-  display:flex;
   /* justify-content: space-between; */
-  align-items:center;
-  height:100px;
-  position:relative;
+  height: 100px;
+  position: relative;
+  width: 100%;
 }
 
 .month {
-  position:relative;
-  left:15px;
-  font-size:35px;
+  top: 50%;
+  position: absolute;
+  left: 15px;
+  font-size: 35px;
+  transform: translate(0, -50%);
 }
 
 .year {
-  position:absolute;
-  right:10px;
-  top:15px;
-  font-size:25px;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  font-size: 25px;
 }

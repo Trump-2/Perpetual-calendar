@@ -63,7 +63,7 @@ switch ($month) {
 
 </head>
 
-<body onload="startTime()" style="background-image:url('<?php echo $Bg ?>')">
+<body style="background-image:url('<?php echo $Bg ?>')">
 
   <!-- <body style="background-image: url('./images/bgN-1.jpg');"> -->
 
@@ -77,9 +77,9 @@ switch ($month) {
   //   // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
   //   $month = date("m");
   //   $year = date('Y');
-  
+
   // }
-  
+
   // 名言的array
   $sayingArr = ['From error to error one discovers the entire truth.', 'The only impossible journey is the one you never begin.', 'Strength and growth come only through continuous effort and struggle.', 'However difficult life may seem, there is always something you can do and succeed at.', 'The beautiful thing about learning is nobody can take it away from you.', 'I am always doing that which I cannot do, in order that I may learn how to do it.', 'There is no such thing as a great talent without great will - power.', 'I don\'t wait for moods. You accomplish nothing if you do that. Your mind must know it has got down to work.', 'You can overcome anything, if and only if you love something enough.', 'Talent without working hard is nothing.', 'Find a group of people who challenge and inspire you; spend a lot of time with them, and it will change your life.', 'Life is like a game of cards. The hand you are dealt is determinism; the way you play it is free will.'];
 
@@ -97,7 +97,7 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-  
+
 
   ?>
   <!-- style='width:500px;display:flex;margin:auto;justify-content:space-between' -->
@@ -133,10 +133,8 @@ switch ($month) {
       </aside>
     </div>
     <div class="main-div">
-
       <main>
         <div class=month-year>
-
           <div class="month">
             <?php
             echo date('M', strtotime(date("Y-$month-1")));
@@ -148,13 +146,6 @@ switch ($month) {
             ?>
           </div>
         </div>
-        <?php
-        // for ($i = 0; $i <= 11; $i++) {
-        //   if ($month == $i + 1) {
-        //     echo $sayingArr[$i];
-        //   }
-        // }
-        ?>
         <table>
           <tr>
             <th>Sun.</th>
@@ -191,39 +182,45 @@ switch ($month) {
             }
             echo "</tr>";
           }
-          // 根據月份印出不同的名言
-          // echo "<tr >";
-          // echo "<td colspan='7'>";
-
-
-
-          // echo "</td>";
-
-          // echo "</tr>";
           echo "</table>";
+
+
+          // 根據月份印出不同的名言
+          echo "<div>";
+          for ($i = 0; $i <= 11; $i++) {
+            if ($month == $i + 1) {
+              echo $sayingArr[$i];
+            }
+          }
+          echo "</div>";
           ?>
       </main>
+
     </div>
     <a href='?year=<?= $nextYear ?>&month=<?= $next ?>'>Next</a>
   </div>
 
 
+  <script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours().toString().padStart(2, '0');
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    var timeString = hours + ':' + minutes + ':' + seconds;
 
-  <!-- <script>
-  function updateTime() {
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    var formattedTime = hours + ':' + minutes + ':' + seconds;
-    document.getElementById('current-time').innerHTML = formattedTime;
+    document.getElementById('clock').textContent = timeString;
   }
 
-  setInterval(updateTime, 1000); // 每秒更新一次時間
-  </script> -->
+  // 初次載入頁面時執行
+  updateClock();
+
+  // 每秒更新一次
+  setInterval(updateClock, 1000);
+  </script>
 
 
-  <script>
+  <!-- <script>
   function startTime() {
     var today = new Date();
     var hh = today.getHours();
@@ -242,18 +239,8 @@ switch ($month) {
     return i;
   }
   setInterval(updateTime, 1000);
-  </script>
-
-  <!-- <script language="JavaScript">
-    function ShowTime() {
-      var now = new Date();
-      hr = ('0' + now.getHours()).substr(-2);
-      min = ('0' + now.getMinutes()).substr(-2);
-      sec = ('0' + now.getSeconds()).substr(-2);
-      document.getElementById('Time').innerHTML = hr + ' : ' + min + ' : ' + sec;
-      setTimeout('ShowTime()', 1000);
-    }
   </script> -->
+
 </body>
 
 </html>

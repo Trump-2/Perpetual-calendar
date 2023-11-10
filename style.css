@@ -20,7 +20,7 @@ table {
   /* border: 3px double #999; */
   border-bottom: 2px solid black;
   height: 250px;
-  background-color: red;
+  background-color: lightblue;
 }
 
 th {
@@ -43,6 +43,9 @@ td {
   justify-content: center;
   align-items: center;
   margin-top: 60px;
+  position: absolute;
+    bottom: 70px;
+    left: 80px;
 }
 
 .container > a {
@@ -56,8 +59,8 @@ td {
 
 aside {
   /* width: 300px; */
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  height: 650px;
   background-color: turquoise;
 }
 
@@ -65,14 +68,11 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 450px;
-  height: 400px;
-  background-color: rgba(156, 156, 156, 0.639);
+  width: 700px;
+  height: 650px;
+    background-color: rgba(156, 156, 156, 0.639);
 }
 
-.main-div {
-  /* filter:blur(3px); */
-}
 
 .today {
   background-color: chocolate;
@@ -98,4 +98,34 @@ main {
   right: 10px;
   top: 15px;
   font-size: 25px;
+}
+
+.prev {
+  transition: transform 0.9s ease; /* 添加 transition 属性 */
+  position: relative;
+  left: 85px;
+}
+
+.prev:hover {
+  transform: translateX(-60px); /* 在悬浮时应用移动效果 */
+}
+
+.next {
+  transition: transform 0.9s ease; /* 添加 transition 属性 */
+  position: relative;
+  right: 85px;
+
+}
+
+.next:hover {
+  transform: translateX(60px); /* 在悬浮时应用移动效果 */
+
+}
+
+.aside-div {
+  z-index: 1;
+}
+
+.main-div {
+  z-index:1;
 }

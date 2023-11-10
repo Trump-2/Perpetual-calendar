@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hover Transition Example</title>
+
+    <style>
+      .hover-div {
+        width:200px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    transition: transform 0.9s ease; /* 添加 transition 属性 */
+}
+
+.hover-div:hover {
+    transform: translateX(60px); /* 在悬浮时应用移动效果 */
+}
+    </style>
+</head>
+<body>
+    <div class="hover-div">
+        Hover over me
+    </div>
+</body>
+</html>

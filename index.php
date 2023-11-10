@@ -57,6 +57,9 @@ switch ($month) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="#">
   <link rel="stylesheet" href="style.css">
   <title>萬年曆作業</title>
@@ -64,7 +67,6 @@ switch ($month) {
 </head>
 
 <body style="background-image:url('<?php echo $Bg ?>')">
-
   <!-- <body style="background-image: url('./images/bgN-1.jpg');"> -->
 
   <!-- <h1>萬年曆</h1> -->
@@ -77,9 +79,9 @@ switch ($month) {
   //   // 這裡的 else 是為了處理如果進到網頁中網址沒有 month 參數時發生的錯誤訊息
   //   $month = date("m");
   //   $year = date('Y');
-
+  
   // }
-
+  
   // 名言的array
   $sayingArr = ['From error to error one discovers the entire truth.', 'The only impossible journey is the one you never begin.', 'Strength and growth come only through continuous effort and struggle.', 'However difficult life may seem, there is always something you can do and succeed at.', 'The beautiful thing about learning is nobody can take it away from you.', 'I am always doing that which I cannot do, in order that I may learn how to do it.', 'There is no such thing as a great talent without great will - power.', 'I don\'t wait for moods. You accomplish nothing if you do that. Your mind must know it has got down to work.', 'You can overcome anything, if and only if you love something enough.', 'Talent without working hard is nothing.', 'Find a group of people who challenge and inspire you; spend a lot of time with them, and it will change your life.', 'Life is like a game of cards. The hand you are dealt is determinism; the way you play it is free will.'];
 
@@ -97,10 +99,9 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-
+  
 
   ?>
-  <!-- style='width:500px;display:flex;margin:auto;justify-content:space-between' -->
   <div>
     <?php
     if ($month > 11) {
@@ -120,12 +121,12 @@ switch ($month) {
     }
 
     ?>
-    <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'>Now</a>
+    <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'><i class="fa-solid fa-rotate-right"></i></a>
 
 
   </div>
   <div class="container">
-    <a href='?year=<?= $prevYear ?>&month=<?= $prev ?>'>Prev</a>
+    <a class="prev" href='?year=<?= $prevYear ?>&month=<?= $prev ?>'><i class="fa-regular fa-circle-left"></i></a>
     <div class='aside-div'>
 
       <aside>
@@ -197,26 +198,27 @@ switch ($month) {
       </main>
 
     </div>
-    <a href='?year=<?= $nextYear ?>&month=<?= $next ?>'>Next</a>
+    <a class="next" href='?year=<?= $nextYear ?>&month=<?= $next ?>'><i
+        class="fa-regular fa-circle-left fa-flip-horizontal"></i></a>
   </div>
 
 
   <script>
-  function updateClock() {
-    var now = new Date();
-    var hours = now.getHours().toString().padStart(2, '0');
-    var minutes = now.getMinutes().toString().padStart(2, '0');
-    var seconds = now.getSeconds().toString().padStart(2, '0');
-    var timeString = hours + ':' + minutes + ':' + seconds;
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours().toString().padStart(2, '0');
+      var minutes = now.getMinutes().toString().padStart(2, '0');
+      var seconds = now.getSeconds().toString().padStart(2, '0');
+      var timeString = hours + ':' + minutes + ':' + seconds;
 
-    document.getElementById('clock').textContent = timeString;
-  }
+      document.getElementById('clock').textContent = timeString;
+    }
 
-  // 初次載入頁面時執行
-  updateClock();
+    // 初次載入頁面時執行
+    updateClock();
 
-  // 每秒更新一次
-  setInterval(updateClock, 1000);
+    // 每秒更新一次
+    setInterval(updateClock, 1000);
   </script>
 
 

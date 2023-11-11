@@ -38,17 +38,17 @@ td {
   /* background-color: yellow; */
 }
 
-.container {
+.box {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
-  position: absolute;
+  /* margin-top: 60px; */
+  /* position: absolute;
     bottom: 70px;
-    left: 80px;
+    left: 80px; */
 }
 
-.container > a {
+.box > a {
   background-color: cornflowerblue;
   display: block;
   width: 100px;
@@ -128,4 +128,78 @@ main {
 
 .main-div {
   z-index:1;
+}
+
+
+.clock {
+  font-size:24px;
+  font-weight:bold;
+  font-size:35px;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 30px;
+}
+
+.header {
+  width:1000px;
+  height:100px;
+  background-color: lightcoral;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+/* .container::before {
+  content:"good";
+  width:800px;
+  height:650px;
+  background-color: lightcoral;
+  display:block;
+} */
+
+.title {
+  position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.none {
+  width:150px;
+}
+
+.clock>span {
+  display: inline-block;
+  text-align: center;
+}
+
+.clock>span:nth-child(odd) {
+  background-color: white;
+  color:black;
+  width:50px;
+  height:50px;
+  line-height: 50px;
+  border-radius:50%;
+}
+
+.return {
+  font-size:50px;
+}
+
+/* 需要它來產生旋轉 360 度的效果 */
+@keyframes circle {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.return:hover {
+  /* 跟上面定義的 circle 效果搭配使用 */
+  animation: circle 2s linear 0s infinite; /* 添加 transition 属性 */
 }

@@ -7,6 +7,13 @@
     <title>Hover Transition Example</title>
 
     <style>
+
+@keyframes circle {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
       .hover-div {
         width:200px;
     background-color: #3498db;
@@ -18,11 +25,26 @@
 .hover-div:hover {
     transform: translateX(60px); /* 在悬浮时应用移动效果 */
 }
+
+    .rotate {
+        width:200px;
+        height:200px;
+        background-color: rgb(68, 116, 116);
+
+    }
+
+    .rotate:hover {
+        animation: circle 4s linear 0s infinite; /* 添加 transition 属性 */
+    }
     </style>
 </head>
 <body>
     <div class="hover-div">
         Hover over me
+    </div>
+
+    <div class="rotate">
+        hover
     </div>
 </body>
 </html>

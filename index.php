@@ -67,9 +67,7 @@ switch ($month) {
 </head>
 
 <body style="background-image:url('<?php echo $Bg ?>')">
-  <!-- <body style="background-image: url('./images/bgN-1.jpg');"> -->
 
-  <!-- <h1>萬年曆</h1> -->
   <?php
   /*請在這裹撰寫你的萬年曆程式碼*/
   // if(isset($_GET['month']) && isset($_GET['year'])) {
@@ -121,85 +119,100 @@ switch ($month) {
     }
 
     ?>
-    <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'><i class="fa-solid fa-rotate-right"></i></a>
 
 
   </div>
   <div class="container">
-    <a class="prev" href='?year=<?= $prevYear ?>&month=<?= $prev ?>'><i class="fa-regular fa-circle-left"></i></a>
-    <div class='aside-div'>
 
-      <aside>
-        <div id="clock"></div>
-      </aside>
+    <div class=header>
+      <div class="title"><span>P</span>erpetual <span>c</span>alendar</div>
+
+      <div class="none"></div>
+      <div class="return"> <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'><i
+            class="fa-solid fa-rotate-right"></i></a>
+      </div>
+      <div class="clock">
+        <span id="hours"></span>
+        <span>:</span>
+        <span id="minutes"></span>
+        <span>:</span>
+        <span id="seconds"></span>
+      </div>
     </div>
-    <div class="main-div">
-      <main>
-        <div class=month-year>
-          <div class="month">
-            <?php
-            echo date('M', strtotime(date("Y-$month-1")));
-            ?>
+    <div class="box">
+      <a class="prev" href='?year=<?= $prevYear ?>&month=<?= $prev ?>'><i class="fa-regular fa-circle-left"></i></a>
+      <div class='aside-div'>
+        <aside>
+        </aside>
+      </div>
+      <div class="main-div">
+        <main>
+          <div class=month-year>
+            <div class="month">
+              <?php
+              echo date('M', strtotime(date("Y-$month-1")));
+              ?>
+            </div>
+            <div class="year">
+              <?php
+              echo $year;
+              ?>
+            </div>
           </div>
-          <div class="year">
+          <table>
+            <tr>
+              <th>Sun.</th>
+              <th>Mon.</th>
+              <th>Tue.</th>
+              <th>Wed.</th>
+              <th>Thu.</th>
+              <th>Fri.</th>
+              <th>Sat.</th>
+            </tr>
             <?php
-            echo $year;
+            // $i 影響週數
+            for ($i = 0; $i < $weeks; $i++) {
+              echo "<tr>";
+              // $j 影響一週有幾天
+              for ($j = 0; $j < 7; $j++) {
+                // 從每月第一周的第一天開始每天遞增 1，從加 0 開始
+                $addDays = 7 * $i + $j;
+                // 從每月第一周的第一天的那格開始，算出每格的秒數
+                $thisCellDate = strtotime("+$addDays days", strtotime($firstCellDate));
+                // 判斷格子中的日期是星期幾，0代表星期日(依此類推)，因為這裡要讓假日的 background-color 改變，也就是星期為 0 或 6 的，所以將其作為判斷條件
+                if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
+                  echo "<td style='color:red'>";
+                } else if (date('Y-m-j') == date('Y-m-j', $thisCellDate)) {
+                  echo "<td class='today'>";
+                } else {
+                  echo "<td>";
+                }
+                // 判斷格子中的日期的月份是否為每月 1 號代表的日期格式裡的月份相等，因為這裡要將不是該月份的日期不顯示出來
+                if (date("m", $thisCellDate) == date('m', strtotime($thisFirstDay))) {
+                  echo date("j", $thisCellDate);
+                }
+                echo "</td>";
+              }
+              echo "</tr>";
+            }
+            echo "</table>";
+
+
+            // 根據月份印出不同的名言
+            echo "<div>";
+            for ($i = 0; $i <= 11; $i++) {
+              if ($month == $i + 1) {
+                echo $sayingArr[$i];
+              }
+            }
+            echo "</div>";
             ?>
-          </div>
-        </div>
-        <table>
-          <tr>
-            <th>Sun.</th>
-            <th>Mon.</th>
-            <th>Tue.</th>
-            <th>Wed.</th>
-            <th>Thu.</th>
-            <th>Fri.</th>
-            <th>Sat.</th>
-          </tr>
-          <?php
-          // $i 影響週數
-          for ($i = 0; $i < $weeks; $i++) {
-            echo "<tr>";
-            // $j 影響一週有幾天
-            for ($j = 0; $j < 7; $j++) {
-              // 從每月第一周的第一天開始每天遞增 1，從加 0 開始
-              $addDays = 7 * $i + $j;
-              // 從每月第一周的第一天的那格開始，算出每格的秒數
-              $thisCellDate = strtotime("+$addDays days", strtotime($firstCellDate));
-              // 判斷格子中的日期是星期幾，0代表星期日(依此類推)，因為這裡要讓假日的 background-color 改變，也就是星期為 0 或 6 的，所以將其作為判斷條件
-              if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
-                echo "<td style='color:red'>";
-              } else if (date('Y-m-j') == date('Y-m-j', $thisCellDate)) {
-                echo "<td class='today'>";
-              } else {
-                echo "<td>";
-              }
-              // 判斷格子中的日期的月份是否為每月 1 號代表的日期格式裡的月份相等，因為這裡要將不是該月份的日期不顯示出來
-              if (date("m", $thisCellDate) == date('m', strtotime($thisFirstDay))) {
-                echo date("j", $thisCellDate);
-              }
-              echo "</td>";
-            }
-            echo "</tr>";
-          }
-          echo "</table>";
+        </main>
 
-
-          // 根據月份印出不同的名言
-          echo "<div>";
-          for ($i = 0; $i <= 11; $i++) {
-            if ($month == $i + 1) {
-              echo $sayingArr[$i];
-            }
-          }
-          echo "</div>";
-          ?>
-      </main>
-
+      </div>
+      <a class="next" href='?year=<?= $nextYear ?>&month=<?= $next ?>'><i
+          class="fa-regular fa-circle-left fa-flip-horizontal"></i></a>
     </div>
-    <a class="next" href='?year=<?= $nextYear ?>&month=<?= $next ?>'><i
-        class="fa-regular fa-circle-left fa-flip-horizontal"></i></a>
   </div>
 
 
@@ -209,9 +222,13 @@ switch ($month) {
       var hours = now.getHours().toString().padStart(2, '0');
       var minutes = now.getMinutes().toString().padStart(2, '0');
       var seconds = now.getSeconds().toString().padStart(2, '0');
-      var timeString = hours + ':' + minutes + ':' + seconds;
+      // var timeString = hours + ':' + minutes + ':' + seconds;
 
-      document.getElementById('clock').textContent = timeString;
+      // document.getElementById('clock').textContent = timeString;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+
     }
 
     // 初次載入頁面時執行
@@ -221,27 +238,6 @@ switch ($month) {
     setInterval(updateClock, 1000);
   </script>
 
-
-  <!-- <script>
-  function startTime() {
-    var today = new Date();
-    var hh = today.getHours();
-    var mm = today.getMinutes();
-    var ss = today.getSeconds();
-    mm = checkTime(mm);
-    ss = checkTime(ss);
-    document.getElementById('clock').innerHTML = hh + " : " + mm + " : " + ss;
-    var timeoutId = setTimeout(startTime, 500);
-  }
-
-  function checkTime(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  }
-  setInterval(updateTime, 1000);
-  </script> -->
 
 </body>
 

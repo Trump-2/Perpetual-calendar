@@ -19,7 +19,7 @@ table {
   table-layout: fixed;
   /* border: 3px double #999; */
   border-bottom: 2px solid black;
-  height: 250px;
+  height: 400px;
   background-color: lightblue;
 }
 
@@ -73,6 +73,24 @@ main {
     background-color: rgba(156, 156, 156, 0.639);
 }
 
+.saying {
+  height:100px;
+  /* line-height:100px; */
+  text-align:center;
+  color:lightseagreen;
+  font-size:30px;
+  display: flex;
+  align-items: center;
+}
+
+.today-weekend {
+  color:red;
+  background-color: chocolate;
+}
+
+.weekend {
+  color:red;
+}
 
 .today {
   background-color: chocolate;
@@ -80,7 +98,7 @@ main {
 
 .month-year {
   /* justify-content: space-between; */
-  height: 100px;
+  height: 150px;
   position: relative;
   width: 100%;
 }
@@ -89,15 +107,15 @@ main {
   top: 50%;
   position: absolute;
   left: 15px;
-  font-size: 35px;
+  font-size: 65px;
   transform: translate(0, -50%);
 }
 
 .year {
   position: absolute;
   right: 10px;
-  top: 15px;
-  font-size: 25px;
+  top: 10%;
+  font-size: 65px;
 }
 
 .prev {
@@ -123,11 +141,11 @@ main {
 }
 
 .aside-div {
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .main-div {
-  z-index:1;
+  /* z-index:1; */
 }
 
 

@@ -180,8 +180,10 @@ switch ($month) {
                 // 從每月第一周的第一天的那格開始，算出每格的秒數
                 $thisCellDate = strtotime("+$addDays days", strtotime($firstCellDate));
                 // 判斷格子中的日期是星期幾，0代表星期日(依此類推)，因為這裡要讓假日的 background-color 改變，也就是星期為 0 或 6 的，所以將其作為判斷條件
-                if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
-                  echo "<td style='color:red'>";
+                if ((date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) && date('Y-m-j') == date('Y-m-j', $thisCellDate)) {
+                  echo "<td class='today-weekend'>";
+                } else if (date('w', $thisCellDate) == 0 || date('w', $thisCellDate) == 6) {
+                  echo "<td class='weekend'>";
                 } else if (date('Y-m-j') == date('Y-m-j', $thisCellDate)) {
                   echo "<td class='today'>";
                 } else {
@@ -199,12 +201,14 @@ switch ($month) {
 
 
             // 根據月份印出不同的名言
+            echo "<div class='saying'>";
             echo "<div>";
             for ($i = 0; $i <= 11; $i++) {
               if ($month == $i + 1) {
                 echo $sayingArr[$i];
               }
             }
+            echo "</div>";
             echo "</div>";
             ?>
         </main>

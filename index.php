@@ -67,7 +67,26 @@ switch ($month) {
 </head>
 
 <body style="background-image:url('<?php echo $Bg ?>')">
+  <form class="m-1 text-center form-inline " action="index.php" method="get">
+    <input class=" form-control " type="text" name="year" placeholder="Year" required="">
+    <select name="month" class="btn btn-light maL ">
+      <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+      <option value="1">January</option>
+      <option value="2">February</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
 
+    </select>
+    <button type="submit" class="btn btn-light  maLS" value="查詢">Search</button>
+  </form>
   <?php
   /*請在這裹撰寫你的萬年曆程式碼*/
   // if(isset($_GET['month']) && isset($_GET['year'])) {
@@ -99,29 +118,27 @@ switch ($month) {
   // echo $firstCellDate;
   
 
+
+  if ($month > 11) {
+    $next = 1;
+    $nextYear = $year + 1;
+  } else {
+    $next = $month + 1;
+    $nextYear = $year;
+  }
+
+  if ($month < 2) {
+    $prev = 12;
+    $prevYear = $year - 1;
+  } else {
+    $prev = $month - 1;
+    $prevYear = $year;
+  }
+
   ?>
-  <div>
-    <?php
-    if ($month > 11) {
-      $next = 1;
-      $nextYear = $year + 1;
-    } else {
-      $next = $month + 1;
-      $nextYear = $year;
-    }
-
-    if ($month < 2) {
-      $prev = 12;
-      $prevYear = $year - 1;
-    } else {
-      $prev = $month - 1;
-      $prevYear = $year;
-    }
-
-    ?>
 
 
-  </div>
+
   <div class="container">
 
     <div class=header>

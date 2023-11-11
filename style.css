@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 table {
   border-collapse: collapse;
   width: 95%;
@@ -18,23 +17,18 @@ table {
   background-color: lightblue;
 }
 
-
-
 th {
   border-top: 2px solid black;
 }
 
 .td-div {
-  position:relative;
+  position: relative;
 }
 
 td {
   /* border: 1px solid #999; */
   /* padding: 5px 10px; */
-  position:absolute;
-  bottom:0;
-  right:0;
-  /* text-align: center; */
+  text-align: center;
   /* height:60px; */
   /* width: 80px;
   height: 80px;
@@ -74,26 +68,26 @@ main {
   flex-direction: column;
   width: 700px;
   height: 650px;
-    background-color: rgba(156, 156, 156, 0.639);
+  background-color: rgba(156, 156, 156, 0.639);
 }
 
 .saying {
-  height:100px;
+  height: 100px;
   /* line-height:100px; */
-  text-align:center;
-  color:lightseagreen;
-  font-size:30px;
+  text-align: center;
+  color: lightseagreen;
+  font-size: 30px;
   display: flex;
   align-items: center;
 }
 
 .today-weekend {
-  color:red;
+  color: red;
   background-color: chocolate;
 }
 
 .weekend {
-  color:red;
+  color: red;
 }
 
 .today {
@@ -136,48 +130,51 @@ main {
   transition: transform 0.9s ease; /* 添加 transition 属性 */
   position: relative;
   right: 85px;
-
 }
 
 .next:hover {
   transform: translateX(60px); /* 在悬浮时应用移动效果 */
-
 }
 
-/* .aside-div {
+.aside-div {
   z-index: 1;
 }
 
 .main-div {
-  z-index:1;
-} */
-
+  z-index: 1;
+}
 
 .clock {
-  font-size:24px;
-  font-weight:bold;
-  font-size:35px;
-
+  font-size: 24px;
+  font-weight: bold;
+  font-size: 35px;
 }
 
 .big-container {
-  height:100vh;
-  display:flex;
-  /* flex-direction: column; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   bottom: 30px;
-  font-size:10px;
+  left: 10px;
+  font-size: 10px;
+}
+
+.container2 {
+  width: 1200px;
+  height: 750px;
 }
 
 .header {
-  width:1000px;
-  height:100px;
+  width: 1000px;
+  height: 100px;
   background-color: lightcoral;
   display: flex;
   align-items: center;
@@ -187,30 +184,32 @@ main {
 
 .title {
   position: absolute;
-    left: 10px;
-    top: 10px;
+  left: 10px;
+  top: 10px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .none {
-  width:150px;
+  width: 150px;
 }
 
-.clock>span {
+.clock > span {
   display: inline-block;
   text-align: center;
 }
 
-.clock>span:nth-child(odd) {
+.clock > span:nth-child(odd) {
   background-color: white;
-  color:black;
-  width:50px;
-  height:50px;
+  color: black;
+  width: 50px;
+  height: 50px;
   line-height: 50px;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 .return {
-  font-size:50px;
+  font-size: 50px;
 }
 
 /* 需要它來產生旋轉 360 度的效果 */
@@ -223,4 +222,24 @@ main {
 .return:hover {
   /* 跟上面定義的 circle 效果搭配使用 */
   animation: circle 2s linear 0s infinite; /* 添加 transition 属性 */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-around;
+  /* text-align: center; */
+}
+
+input {
+  text-align: center;
+}
+
+select {
+  text-align: center;
+}
+
+form > div {
+  font-size: 30px;
 }

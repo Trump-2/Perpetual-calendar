@@ -73,7 +73,7 @@ switch ($month) {
 
   <?php
   // 名言的array
-  $sayingArr = ['Don’t let the past steal your present.', 'Whether you fail or fly, at least you tried.', 'Knowledge is a treasure, but practice is the key to it.', 'You can’t be perfect but you can be unique.', 'The first step is as good as half over.', 'I know that my future is not just a dream. ', 'Quitters never win and winners never quit.', 'Victory won’t come to me unless I go to it.', 'Pessimism leads to weakness, optimism to power.', 'Talent without working hard is nothing.', 'It’s up to you how far you’ll go.', 'Those who dare to fail miserably can achieve greatly.'];
+  $sayingArr = ['Don’t let the past steal your present.', 'Whether you fail or fly, at least you tried.', 'From small beginning come great things.', 'You can’t be perfect but you can be unique.', 'The first step is as good as half over.', 'I know that my future is not just a dream. ', 'Quitters never win and winners never quit.', 'Victory won’t come to me unless I go to it.', 'Pessimism leads to weakness, optimism to power.', 'Talent without working hard is nothing.', 'It’s up to you how far you’ll go.', 'God helps those who help themselves.'];
 
 
   // 顯示每個月 1 號的日期格式
@@ -235,25 +235,25 @@ switch ($month) {
   </div>
 
   <script>
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours().toString().padStart(2, '0');
-      var minutes = now.getMinutes().toString().padStart(2, '0');
-      var seconds = now.getSeconds().toString().padStart(2, '0');
-      // var timeString = hours + ':' + minutes + ':' + seconds;
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours().toString().padStart(2, '0');
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    // var timeString = hours + ':' + minutes + ':' + seconds;
 
-      // document.getElementById('clock').textContent = timeString;
-      document.getElementById('hours').textContent = hours;
-      document.getElementById('minutes').textContent = minutes;
-      document.getElementById('seconds').textContent = seconds;
+    // document.getElementById('clock').textContent = timeString;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
 
-    }
+  }
 
-    // 初次載入頁面時執行
-    updateClock();
+  // 初次載入頁面時執行
+  updateClock();
 
-    // 每秒更新一次
-    setInterval(updateClock, 1000);
+  // 每秒更新一次
+  setInterval(updateClock, 1000);
   </script>
 
 

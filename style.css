@@ -6,20 +6,24 @@
 }
 
 table {
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   width: 95%;
   /* position: absolute;
   left: 15px; */
   table-layout: fixed;
   /* border: 3px double #999; */
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
   height: 400px;
-  background-color: lightblue;
+  background-color: rgb(176, 176, 176);
   font-size:30px;
+  color:rgb(146, 118, 231);
+  font-style: italic;
+  box-shadow: 5px 5px 1px white,10px 10px 1px rgb(213, 213, 213)
 }
 
 th {
-  border-top: 2px solid black;
+  border:2px solid white;
+
 }
 
 .td-div {
@@ -29,12 +33,16 @@ th {
 td {
   /* border: 1px solid #999; */
   /* padding: 5px 10px; */
-  text-align: center;
-  /* height:60px; */
-  /* width: 80px;
-  height: 80px;
-  border-radius: 50%; */
-  /* background-color: yellow; */
+  /* text-align: center; */
+  border:2px solid white;
+  vertical-align: bottom;
+  text-align: right;
+  padding:5px;
+}
+
+td:hover {
+  transition-duration: 1s;
+  
 }
 
 .box {
@@ -48,33 +56,43 @@ td {
 }
 
 .box > a {
-  background-color: cornflowerblue;
+  /* background-color: cornflowerblue; */
   display: block;
   width: 100px;
-  height: 100px;
+  height: 15vh;
   text-align: center;
-  line-height: 100px;
+  line-height: 15vh;
+  backdrop-filter: blur(5px);
+  border-radius:20px;
 }
+
+
 
 aside {
   /* width: 300px; */
-  width: 300px;
-  height: 650px;
+  width: 350px;
+  height: 550px;
   background-color: turquoise;
+  border-radius: 0 0 0 30px;
+
+  
 }
 
 aside>img {
   max-width:100%;
   height:100%;
+  border-radius: 0 0 0 30px;
+
 }
 
 main {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 700px;
-  height: 650px;
-  background-color: rgba(156, 156, 156, 0.639);
+  width: 600px;
+  height: 550px;
+  background-color: rgba(156, 156, 156, 0.211);
+  border-radius: 0 0 30px;
 }
 
 .saying {
@@ -83,23 +101,31 @@ main {
   /* line-height:100px; */
   /* text-align: center; */
   color: lightseagreen;
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color:rgb(255, 217, 0);
 }
 
 .today-weekend {
-  color: red;
-  background-color: chocolate;
+  color: rgb(0, 0, 0);
+  /* background-color: chocolate; */
+  text-decoration:underline;
+  background-color:white;
+  font-weight:bold;
+
 }
 
 .weekend {
-  color: red;
+  color: rgb(0, 0, 0);
+  font-weight:bold;
 }
 
 .today {
-  background-color: chocolate;
+  text-decoration:underline;
+  background-color:white;
+
 }
 
 .month-year {
@@ -115,6 +141,7 @@ main {
   left: 15px;
   font-size: 65px;
   transform: translate(0, -50%);
+  color:white;
 }
 
 .year {
@@ -122,26 +149,31 @@ main {
   right: 10px;
   top: 10%;
   font-size: 65px;
+  
 }
 
 .prev {
   transition: transform 0.9s ease; /* 添加 transition 属性 */
   position: relative;
-  left: 85px;
+  left: 88px;
+  border-left: 6px solid rgba(255, 255, 255, 0.498);
+
 }
 
 .prev:hover {
-  transform: translateX(-60px); /* 在悬浮时应用移动效果 */
+  transform: translateX(-68px); /* 在悬浮时应用移动效果 */
 }
 
 .next {
   transition: transform 0.9s ease; /* 添加 transition 属性 */
   position: relative;
-  right: 85px;
+  right: 88px;
+  border-right: 6px solid rgba(255, 255, 255, 0.498);
+
 }
 
 .next:hover {
-  transform: translateX(60px); /* 在悬浮时应用移动效果 */
+  transform: translateX(68px); /* 在悬浮时应用移动效果 */
 }
 
 .aside-div {
@@ -163,7 +195,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: red;
   background-image: url('./images/backgrounds/bg14_c.png');
   background-position:top;
   /* background-size:cover; */
@@ -190,25 +221,27 @@ main {
 }
 
 .header {
-  width: 1000px;
+  width: 950px;
   height: 100px;
-  background-color: lightcoral;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   position: relative;
+  border-radius: 30px 30px 0 0;
+  border:8px ridge #9a1bff;
+  border-bottom:0;
 }
 
 .title {
   position: absolute;
-  left: 10px;
-  top: 10px;
-  font-size: 40px;
+  left: 5px;
+  top: 5px;
+  font-size: 50px;
   font-weight: bold;
 }
 
 .none {
-  width: 150px;
+  width: 250px;
 }
 
 .clock > span {
@@ -223,6 +256,15 @@ main {
   height: 50px;
   line-height: 50px;
   border-radius: 50%;
+}
+
+.clock > span:nth-child(1) {
+  background-color: black;
+  color:white;
+}
+
+.clock > span:nth-child(even) {
+  color:rgb(100, 85, 232);
 }
 
 .return {
@@ -262,4 +304,12 @@ select {
 
 form > div {
   font-size: 40px;
+}
+
+
+.fa-circle-left {
+  font-size: 50px;
+  line-height: 15vh;
+  /* background-image:linear-gradient(to right, black, white); */
+  color:white
 }

@@ -73,7 +73,7 @@ switch ($month) {
 
   <?php
   // 名言的array
-  $sayingArr = ['From error to error one discovers the entire truth.', 'The only impossible journey is the one you never begin.', 'Strength and growth come only through continuous effort and struggle.', 'However difficult life may seem, there is always something you can do and succeed at.', 'The beautiful thing about learning is nobody can take it away from you.', 'I am always doing that which I cannot do, in order that I may learn how to do it.', 'There is no such thing as a great talent without great will - power.', 'I don\'t wait for moods. You accomplish nothing if you do that. Your mind must know it has got down to work.', 'You can overcome anything, if and only if you love something enough.', 'Talent without working hard is nothing.', 'Find a group of people who challenge and inspire you; spend a lot of time with them, and it will change your life.', 'Life is like a game of cards. The hand you are dealt is determinism; the way you play it is free will.'];
+  $sayingArr = ['Don’t let the past steal your present.', 'Whether you fail or fly, at least you tried.', 'Knowledge is a treasure, but practice is the key to it.', 'You can’t be perfect but you can be unique.', 'The first step is as good as half over.', 'I know that my future is not just a dream. ', 'Quitters never win and winners never quit.', 'Victory won’t come to me unless I go to it.', 'Pessimism leads to weakness, optimism to power.', 'Talent without working hard is nothing.', 'It’s up to you how far you’ll go.', 'Those who dare to fail miserably can achieve greatly.'];
 
 
   // 顯示每個月 1 號的日期格式
@@ -193,13 +193,13 @@ switch ($month) {
 
               // 根據月份印出不同的名言
               echo "<div class='saying'>";
-              echo "<div>";
+              // echo "<div>";
               for ($i = 0; $i <= 11; $i++) {
                 if ($month == $i + 1) {
                   echo $sayingArr[$i];
                 }
               }
-              echo "</div>";
+              // echo "</div>";
               echo "</div>";
               ?>
           </main>

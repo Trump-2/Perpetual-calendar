@@ -212,22 +212,28 @@ switch ($month) {
     <div class="container2"></div>
     <div class="container3">
       <form action="index.php" method="get">
-        <div>Search</div>
-        <input type="text" name="year" placeholder="Year" required="">
-        <select name="month">
-          <option value="1">Jan.</option>
-          <option value="2">Feb.</option>
-          <option value="3">Mar.</option>
-          <option value="4">Apr.</option>
-          <option value="5">May.</option>
-          <option value="6">Jun.</option>
-          <option value="7">Jul.</option>
-          <option value="8">Aug.</option>
-          <option value="9">Sep.</option>
-          <option value="10">Oct.</option>
-          <option value="11">Nov.</option>
-          <option value="12">Dec.</option>
-        </select>
+        <div class="search">Search</div>
+        <div>
+          <label for="">Year:</label>
+          <input type="text" name="year" placeholder="" required="">
+        </div>
+        <div>
+          <label for="">Month:</label>
+          <select name="month">
+            <option value="1">Jan.</option>
+            <option value="2">Feb.</option>
+            <option value="3">Mar.</option>
+            <option value="4">Apr.</option>
+            <option value="5">May.</option>
+            <option value="6">Jun.</option>
+            <option value="7">Jul.</option>
+            <option value="8">Aug.</option>
+            <option value="9">Sep.</option>
+            <option value="10">Oct.</option>
+            <option value="11">Nov.</option>
+            <option value="12">Dec.</option>
+          </select>
+        </div>
         <input type="submit" value="Go !">
       </form>
     </div>
@@ -235,25 +241,25 @@ switch ($month) {
   </div>
 
   <script>
-  function updateClock() {
-    var now = new Date();
-    var hours = now.getHours().toString().padStart(2, '0');
-    var minutes = now.getMinutes().toString().padStart(2, '0');
-    var seconds = now.getSeconds().toString().padStart(2, '0');
-    // var timeString = hours + ':' + minutes + ':' + seconds;
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours().toString().padStart(2, '0');
+      var minutes = now.getMinutes().toString().padStart(2, '0');
+      var seconds = now.getSeconds().toString().padStart(2, '0');
+      // var timeString = hours + ':' + minutes + ':' + seconds;
 
-    // document.getElementById('clock').textContent = timeString;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
+      // document.getElementById('clock').textContent = timeString;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
 
-  }
+    }
 
-  // 初次載入頁面時執行
-  updateClock();
+    // 初次載入頁面時執行
+    updateClock();
 
-  // 每秒更新一次
-  setInterval(updateClock, 1000);
+    // 每秒更新一次
+    setInterval(updateClock, 1000);
   </script>
 
 

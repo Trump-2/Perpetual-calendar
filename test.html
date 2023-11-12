@@ -36,6 +36,15 @@
     .rotate:hover {
         animation: circle 4s linear 0s infinite; /* 添加 transition 属性 */
     }
+
+.gradient-text {
+    background: linear-gradient(to top, white, black);
+   background: -webkit-linear-gradient(to top, white ,black);
+   background-clip: text;
+   -webkit-background-clip: text;
+   color: transparent;
+}
+
     </style>
 </head>
 <body>
@@ -46,5 +55,8 @@
     <div class="rotate">
         hover
     </div>
+
+    <div class="gradient-text">test</div>
+
 </body>
 </html>

@@ -70,7 +70,6 @@ switch ($month) {
 
 <body>
 
-
   <?php
   // 名言的array
   $sayingArr = ['Don’t let the past steal your present.', 'Whether you fail or fly, at least you tried.', 'From small beginning come great things.', 'You can’t be perfect but you can be unique.', 'The first step is as good as half over.', 'I know that my future is not just a dream. ', 'Quitters never win and winners never quit.', 'Victory won’t come to me unless I go to it.', 'Pessimism leads to weakness, optimism to power.', 'Talent without working hard is nothing.', 'It’s up to you how far you’ll go.', 'God helps those who help themselves.'];
@@ -89,7 +88,7 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-  
+
 
 
   if ($month > 11) {
@@ -119,7 +118,7 @@ switch ($month) {
 
         <div class="none"></div>
         <div class="return"> <a href='?year=<?= date('Y') ?>&month=<?= date('n') ?>'><i
-              class="fa-solid fa-rotate-right"></i></a>
+              class="fa-solid fa-hourglass-start"></i></a>
         </div>
         <div class="clock">
           <span id="hours"></span>
@@ -130,7 +129,8 @@ switch ($month) {
         </div>
       </div>
       <div class="box">
-        <a class="prev" href='?year=<?= $prevYear ?>&month=<?= $prev ?>'><i class="fa-regular fa-circle-left"></i></a>
+        <a class="prev" href='?year=<?= $prevYear ?>&month=<?= $prev ?>'><i
+            class="fa-solid fa-star-and-crescent"></i></a>
         <div class='aside-div'>
           <aside>
             <img src="<?php echo $Bg ?>" alt="">
@@ -241,25 +241,25 @@ switch ($month) {
   </div>
 
   <script>
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours().toString().padStart(2, '0');
-      var minutes = now.getMinutes().toString().padStart(2, '0');
-      var seconds = now.getSeconds().toString().padStart(2, '0');
-      // var timeString = hours + ':' + minutes + ':' + seconds;
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours().toString().padStart(2, '0');
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    // var timeString = hours + ':' + minutes + ':' + seconds;
 
-      // document.getElementById('clock').textContent = timeString;
-      document.getElementById('hours').textContent = hours;
-      document.getElementById('minutes').textContent = minutes;
-      document.getElementById('seconds').textContent = seconds;
+    // document.getElementById('clock').textContent = timeString;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
 
-    }
+  }
 
-    // 初次載入頁面時執行
-    updateClock();
+  // 初次載入頁面時執行
+  updateClock();
 
-    // 每秒更新一次
-    setInterval(updateClock, 1000);
+  // 每秒更新一次
+  setInterval(updateClock, 1000);
   </script>
 
 

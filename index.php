@@ -235,7 +235,7 @@ switch ($month) {
           </select>
         </div>
         <div>
-          <input type="submit" value="Go !">
+          <input type="submit" value="Go">
         </div>
       </form>
     </div>

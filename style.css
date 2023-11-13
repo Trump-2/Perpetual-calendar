@@ -1,9 +1,17 @@
 /*請在這裹撰寫你的CSS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+
 
 table {
   /* border-collapse: collapse; */
@@ -16,8 +24,7 @@ table {
   height: 400px;
   background-color: rgb(176, 176, 176);
   font-size: 30px;
-  color: rgb(146, 118, 231);
-  font-style: italic;
+  color: rgb(121, 77, 255);
   box-shadow: 5px 5px 1px white, 10px 10px 1px rgb(213, 213, 213);
 }
 
@@ -37,10 +44,11 @@ td {
   vertical-align: bottom;
   text-align: right;
   padding: 5px;
-}
+  /* font-family:'Special+Elite'; */
+  font-family: 'Oregano', cursive;}
 
 td:hover {
-  transition-duration: 1s;
+  font-family: 'Shrikhand';
 }
 
 .box {
@@ -121,15 +129,16 @@ main {
   height: 150px;
   position: relative;
   width: 100%;
+  font-family:'Frijole';
 }
 
 .month {
   top: 50%;
   position: absolute;
   left: 15px;
-  font-size: 65px;
+  font-size: 55px;
   transform: translate(0, -50%);
-  color: rgb(146, 118, 231);
+  color: rgb(174, 147, 255);
   border-bottom: 8px groove white;
 
   /* border:2px solid white; */
@@ -138,9 +147,16 @@ main {
 .year {
   position: absolute;
   right: 10px;
-  top: 10%;
-  font-size: 65px;
+  top: -10px;
+  font-size: 60px;
   color: gold;
+  background: linear-gradient(to top, gold, rgba(3, 26, 119, 0.491));
+  background: -webkit-linear-gradient(to top, gold, rgba(3, 26, 119, 0.495));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  font-family: 'Permanent Marker', cursive;
 }
 
 .prev {
@@ -225,15 +241,15 @@ main {
 .title {
   position: absolute;
   left: 10px;
-  top: 0;
-  font-size: 50px;
+  top: -15px;
+  font-size: 45px;
   font-weight: bold;
   background: linear-gradient(to right, white, rgb(113, 113, 113));
   background: -webkit-linear-gradient(to right, white, rgb(113, 113, 113));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-}
+  font-family: 'Gloria Hallelujah', cursive;}
 
 .none {
   width: 250px;

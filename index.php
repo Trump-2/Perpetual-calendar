@@ -88,7 +88,7 @@ switch ($month) {
   // 算出第一周第一天的日期；利用每個月一號 ( 轉成秒數 ) - 每個月第一周 1 號前面的空白天數 ( 剛好等於 1 號是星期幾的值 )，最後再轉換成日期格式
   $firstCellDate = date("Y-m-d", strtotime("-$thisFirstDay_Dayoftheweek days", strtotime($thisFirstDay)));
   // echo $firstCellDate;
-
+  
 
 
   if ($month > 11) {
@@ -234,32 +234,34 @@ switch ($month) {
             <option value="12">Dec.</option>
           </select>
         </div>
-        <input type="submit" value="Go !">
+        <div>
+          <input type="submit" value="Go !">
+        </div>
       </form>
     </div>
 
   </div>
 
   <script>
-  function updateClock() {
-    var now = new Date();
-    var hours = now.getHours().toString().padStart(2, '0');
-    var minutes = now.getMinutes().toString().padStart(2, '0');
-    var seconds = now.getSeconds().toString().padStart(2, '0');
-    // var timeString = hours + ':' + minutes + ':' + seconds;
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours().toString().padStart(2, '0');
+      var minutes = now.getMinutes().toString().padStart(2, '0');
+      var seconds = now.getSeconds().toString().padStart(2, '0');
+      // var timeString = hours + ':' + minutes + ':' + seconds;
 
-    // document.getElementById('clock').textContent = timeString;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
+      // document.getElementById('clock').textContent = timeString;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
 
-  }
+    }
 
-  // 初次載入頁面時執行
-  updateClock();
+    // 初次載入頁面時執行
+    updateClock();
 
-  // 每秒更新一次
-  setInterval(updateClock, 1000);
+    // 每秒更新一次
+    setInterval(updateClock, 1000);
   </script>
 
 

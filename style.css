@@ -207,7 +207,7 @@ main {
 
 .container3 {
   /* margin-left: 5vw; */
-  width: 30vw;
+  width: 13vw;
 }
 
 .header {
@@ -228,8 +228,8 @@ main {
   top: 0;
   font-size: 50px;
   font-weight: bold;
-  background: linear-gradient(to right, white, rgb(79, 79, 79));
-  background: -webkit-linear-gradient(to right, white, rgb(82, 82, 82));
+  background: linear-gradient(to right, white, rgb(113, 113, 113));
+  background: -webkit-linear-gradient(to right, white, rgb(113, 113, 113));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -276,7 +276,7 @@ main {
 
 .return {
   /* 跟上面定義的 circle 效果搭配使用 */
-  animation: circle 2s linear 0s infinite; /* 添加 transition 属性 */
+  animation: circle 4s linear 0s infinite; /* 添加 transition 属性 */
 }
 
 form {
@@ -286,28 +286,38 @@ form {
   /* justify-content: space-around; */
   font-size: 50px;
   width: 80%;
+  justify-content: space-evenly;
+}
+
+label {
+  width:40%;
+  display:inline-block;
+  font-size:30px;
 }
 
 input {
   text-align: center;
   background-color: rgba(255, 0, 0, 0);
-  height: 20%;
   font-size: 20px;
   color: rgb(146, 118, 231);
   /* border:0; */
   background-color: rgba(0, 0, 0, 0.495);
   border-radius: 10px;
+  width:50%;
+  height:50%;
 }
 
 input[type="submit"] {
-  width: 50%;
+  width: 35%;
+  height:100%;
   /* margin: 0 auto; */
 }
 
 select {
   text-align: center;
-  height: 20%;
+  height:50%;
   font-size: 20px;
+  width:50%;
 }
 
 .search {

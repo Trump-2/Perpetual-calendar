@@ -117,6 +117,7 @@ else {
 
   ?>
     <a href='?year=<?=$prevYear?>&month=<?=$prev?>'>上一個月</a>
+    <a href='?year=<?=date('Y')?>&month=<?=date('n')?>'>當月</a>
     <a href='?year=<?=$nextYear?>&month=<?=$next?>'>下一個月</a>
   </div>
   <table style='margin:auto'>

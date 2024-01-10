@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,46 +8,48 @@
     <title>Hover Transition Example</title>
 
     <style>
+        @keyframes circle {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-@keyframes circle {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+        .hover-div {
+            width: 200px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            transition: transform 0.9s ease;
+            /* 添加 transition 属性 */
+        }
 
-      .hover-div {
-        width:200px;
-    background-color: #3498db;
-    color: #fff;
-    padding: 20px;
-    transition: transform 0.9s ease; /* 添加 transition 属性 */
-}
+        .hover-div:hover {
+            transform: translateX(60px);
+            /* 在悬浮时应用移动效果 */
+        }
 
-.hover-div:hover {
-    transform: translateX(60px); /* 在悬浮时应用移动效果 */
-}
+        .rotate {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(68, 116, 116);
 
-    .rotate {
-        width:200px;
-        height:200px;
-        background-color: rgb(68, 116, 116);
+        }
 
-    }
+        .rotate:hover {
+            animation: circle 4s linear 0s infinite;
+            /* 添加 transition 属性 */
+        }
 
-    .rotate:hover {
-        animation: circle 4s linear 0s infinite; /* 添加 transition 属性 */
-    }
-
-.gradient-text {
-    background: linear-gradient(to top, white, black);
-   background: -webkit-linear-gradient(to top, white ,black);
-   background-clip: text;
-   -webkit-background-clip: text;
-   color: transparent;
-}
-
+        .gradient-text {
+            background: linear-gradient(to top, white, black);
+            background: -webkit-linear-gradient(to top, white, black);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
     </style>
 </head>
+
 <body>
     <div class="hover-div">
         Hover over me
@@ -59,4 +62,6 @@
     <div class="gradient-text">test</div>
 
 </body>
+
 </html>
+<!-- a -->
